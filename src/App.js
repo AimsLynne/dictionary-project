@@ -1,12 +1,18 @@
 import "./App.css";
+import Dictionary from "./Dictionary";
 
 export default function App() {
   return (
     <div className="App">
-      <header className="App-header">Hello👋</header>
-      <a href="#" className="btn btn-primary shadow">
-        Search
-      </a>
+      <div className="container">
+        <header className="App-header text-center">Hello👋</header>
+        <main>
+          <Dictionary />
+        </main>
+        <footer className="App-footer">
+          <small>Coded by Amy Brown</small>
+        </footer>
+      </div>
     </div>
   );
 }
