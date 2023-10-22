@@ -52,7 +52,7 @@ export default function Dictionary(props) {
               <label>What word do you want to look up?</label>
               <input
                 type="search"
-                placeholder="Search for a word"
+                placeholder={"Search for a word"}
                 defaultValue={props.defaultKeyword}
                 autoFocus={true}
                 className="form-control search-input"
@@ -70,6 +70,6 @@ export default function Dictionary(props) {
     );
   } else {
     load();
-    return "Loading!";
+    return "Loading...";
   }
 }
