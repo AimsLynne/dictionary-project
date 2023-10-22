@@ -45,25 +45,27 @@ export default function Dictionary(props) {
 
   if (loaded) {
     return (
-      <div className="Dictionary">
-        <section>
-          <form onSubmit={handleSubmit}>
-            <label>What word do you want to look up?</label>
-            <input
-              type="search"
-              placeholder="Search for a word"
-              defaultValue={props.defaultKeyword}
-              autoFocus={true}
-              className="form-control search-input"
-              onChange={handleKeywordChange}
-            />
-          </form>
-          <small className="hint">
-            i.e. knowledge, travel, library, coding...
-          </small>
-        </section>
-        <Result definition={definition} />
-        <Photos photos={photos} />
+      <div className="container">
+        <div className="Dictionary">
+          <section>
+            <form onSubmit={handleSubmit}>
+              <label>What word do you want to look up?</label>
+              <input
+                type="search"
+                placeholder="Search for a word"
+                defaultValue={props.defaultKeyword}
+                autoFocus={true}
+                className="form-control search-input"
+                onChange={handleKeywordChange}
+              />
+            </form>
+            <small className="hint">
+              i.e. knowledge, travel, library, coding...
+            </small>
+          </section>
+          <Result definition={definition} />
+          <Photos photos={photos} />
+        </div>
       </div>
     );
   } else {

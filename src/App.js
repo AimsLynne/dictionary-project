@@ -9,27 +9,27 @@ export default function App() {
         <main>
           <Dictionary defaultKeyword="library" />
         </main>
-        <footer className="App-footer">
-          <small>
-            This project was coded by Amy Brown and is{" "}
-            <a
-              href="https://github.com/AimsLynne/dictionary-project"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              open-sourced on GitHub
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://app.netlify.com/sites/statuesque-praline-2886a8/overview"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              hosted on Netlify.
-            </a>
-          </small>
-        </footer>
       </div>
+      <footer className="App-footer">
+        <small>
+          This project was coded by Amy Brown and is{" "}
+          <a
+            href="https://github.com/AimsLynne/dictionary-project"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            open-sourced on GitHub
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://app.netlify.com/sites/statuesque-praline-2886a8/overview"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            hosted on Netlify.
+          </a>
+        </small>
+      </footer>
     </div>
   );
 }
