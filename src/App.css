@@ -5,16 +5,19 @@
 }
 
 .App-header {
-  font-size: 40px;
+  font-size: 70px;
   color: rgb(31, 146, 184);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 25px;
 }
 
 .App footer {
   text-align: center;
   margin-top: 20px;
   font-size: 13px;
+  color: black;
 }
 
 .App a {
-  color: #6c63ff;
+  color: #9ba6a5;
 }

@@ -59,7 +59,7 @@ export default function Dictionary(props) {
             />
           </form>
           <small className="hint">
-            i.e. knowledge, travel, library, code...
+            i.e. knowledge, travel, library, coding...
           </small>
         </section>
         <Result definition={definition} />
