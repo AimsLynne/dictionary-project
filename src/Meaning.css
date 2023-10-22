@@ -1,0 +1,13 @@
+.Meaning h3 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 29px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.Meaning em {
+  font-size: 13px;
+  line-height: 15px;
+  color: #666666;
+}

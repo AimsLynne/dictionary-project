@@ -1,8 +1,26 @@
-.App-header {
-  margin: 30px 0;
+.App {
+  padding: 60px 0 100px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-.App-footer {
+.App .logo {
+  max-width: 200px;
+  display: block;
+  margin: 30px auto;
+}
+
+.App-header {
+  font-size: 40px;
+  color: rgb(31, 146, 184);
+}
+
+.App footer {
   text-align: center;
-  margin: 30px 0;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.App a {
+  color: #6c63ff;
 }
