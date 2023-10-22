@@ -1,19 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Results from "./Results";
+import Result from "./Result";
+import Photos from "./Photos";
 import "./Dictionary.css";
 
 export default function Dictionary(props) {
-  let [keyword, setKeyword] = useState(props.defaultKeyword);
-  let [results, setResults] = useState(null);
-  let [loaded, setLoaded] = useState(false);
+  const [keyword, setKeyword] = useState(props.defaultKeyword);
+  const [loaded, setLoaded] = useState(false);
+  const [definition, setDefinition] = useState(null);
+  const [photos, setPhotos] = useState([]);
+
+  function handleImages(response) {
+    setPhotos(response.data.photos);
+  }
 
   function handleResponse(response) {
-    setResults(response.data[0]);
+    setDefinition(response.data);
+    let apiKey = "eac360db5fc86ft86450f3693e73o43f";
+    let apiUrl = `https://api.shecodes.io/images/v1/search?query=${response.data.word}&key=${apiKey}`;
+    axios
+      .get(apiUrl, { headers: { Authorization: `Bearer ${apiKey}` } })
+      .then(handleImages);
+  }
+
+  function load() {
+    setLoaded(true);
+    search();
   }
 
   function search() {
-    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    let apiKey = "01cf80e9bcbto43d240bebba2f83d942";
+    let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -24,11 +41,6 @@ export default function Dictionary(props) {
 
   function handleKeywordChange(event) {
     setKeyword(event.target.value);
-  }
-
-  function load() {
-    setLoaded(true);
-    search();
   }
 
   if (loaded) {
@@ -46,15 +58,16 @@ export default function Dictionary(props) {
               onChange={handleKeywordChange}
             />
           </form>
-          <div className="hint">
-            Suggested words: knowledge, travel, library, code...
-          </div>
+          <small className="hint">
+            i.e. knowledge, travel, library, code...
+          </small>
         </section>
-        <Results results={results} />
+        <Result definition={definition} />
+        <Photos photos={photos} />
       </div>
     );
   } else {
     load();
-    return "Loading";
+    return "Loading!";
   }
 }
