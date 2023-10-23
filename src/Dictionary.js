@@ -9,12 +9,18 @@ export default function Dictionary(props) {
   const [loaded, setLoaded] = useState(false);
   const [definition, setDefinition] = useState(null);
   const [photos, setPhotos] = useState([]);
+  const [error, setError] = useState(false);
 
   function handleImages(response) {
     setPhotos(response.data.photos);
   }
 
   function handleResponse(response) {
+    if (response.data?.status === "not_found") {
+      setError(true);
+      return;
+    }
+    setError(false);
     setDefinition(response.data);
     let apiKey = "eac360db5fc86ft86450f3693e73o43f";
     let apiUrl = `https://api.shecodes.io/images/v1/search?query=${response.data.word}&key=${apiKey}`;
@@ -63,8 +69,14 @@ export default function Dictionary(props) {
               i.e. knowledge, travel, library, coding...
             </small>
           </section>
-          <Result definition={definition} />
-          <Photos photos={photos} />
+          {error ? (
+            <p>Can't find any results for your search...</p>
+          ) : (
+            <>
+              <Result definition={definition} />
+              <Photos photos={photos} />
+            </>
+          )}
         </div>
       </div>
     );
