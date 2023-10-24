@@ -68,6 +68,7 @@ export default function Dictionary(props) {
               i.e. knowledge, travel, library, coding...
             </small>
           </section>
+          <br />
           {error ? (
             <p>Can't find any results for your search...</p>
           ) : (
